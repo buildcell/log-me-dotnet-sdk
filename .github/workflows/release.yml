@@ -45,23 +45,28 @@ jobs:
         run: msbuild .\LogMe.sln /p:Configuration=Release
 
       - name: Build Nuget package
-        run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Properties Configuration=Release
+        run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Version ${{ needs.build.outputs.Version }} -Properties Configuration=Release
 
       - name: Upload NuGet Package as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: 'artifact'
-          path: src/BuildCell.LogMe/
+          name: Nuget-Package
+          path: BuildCell.LogMe.*.nupkg 
   
   release:
     runs-on: windows-2019
     needs: build
     
     steps:
+      - name: Download nuget package artifact
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: Nuget-Package
+          
       - name: Create release in github
         if: needs.build.outputs.CommitsSinceVersionSource > 0
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ needs.build.outputs.Version }}
-          name: Release ${{ needs.build.outputs.Version }}
-          artifacts: "artifact/*"
+          name: ${{ needs.build.outputs.Version }}
+          artifacts: "Nuget-Package/BuildCell.LogMe*.nupkg"
