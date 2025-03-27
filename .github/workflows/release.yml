@@ -16,7 +16,7 @@ jobs:
           nuget-version: '5.x'
 
       - name: Restore Nuget packages
-        run: nuget restore LogMe.sln /p:Configuration=Release
+        run: nuget restore LogMe.sln
 
       - name: Build Nuget package
         run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Properties Configuration=Release
