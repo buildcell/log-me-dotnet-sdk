@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\LogMe\LogMe.csproj">
+    <ProjectReference Include="..\..\src\BuildCell.LogMe\BuildCell.LogMe.csproj">
       <Project>{ccdeaa61-af95-4bbe-b641-03efcd9662d0}</Project>
-      <Name>LogMe</Name>
+      <Name>BuildCell.LogMe</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>

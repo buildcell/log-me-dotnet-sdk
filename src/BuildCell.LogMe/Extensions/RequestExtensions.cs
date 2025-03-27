@@ -1,4 +1,4 @@
-﻿namespace LogMe.Extensions
+﻿namespace BuildCell.LogMe.Extensions
 {
     public static class RequestExtensions
     {

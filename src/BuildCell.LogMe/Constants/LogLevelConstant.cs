@@ -1,4 +1,4 @@
-﻿namespace LogMe.Constants
+﻿namespace BuildCell.LogMe.Constants
 {
     public static class LogLevelConstant
     {

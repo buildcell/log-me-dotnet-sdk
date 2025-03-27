@@ -1,6 +1,6 @@
-﻿using LogMe.Constants;
+﻿using BuildCell.LogMe.Constants;
 
-namespace LogMe.Dtos
+namespace BuildCell.LogMe.Dtos
 {
     public class LogCreateRequest
     {

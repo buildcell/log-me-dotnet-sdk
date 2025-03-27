@@ -1,5 +1,5 @@
-﻿using LogMe.Constants;
-using LogMe.Services;
+﻿using BuildCell.LogMe.Constants;
+using BuildCell.LogMe.Services;
 
 namespace ExampleDotnetFramework
 {

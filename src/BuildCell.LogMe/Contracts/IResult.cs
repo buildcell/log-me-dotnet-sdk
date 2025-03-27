@@ -1,4 +1,4 @@
-﻿namespace LogMe.Contracts
+﻿namespace BuildCell.LogMe.Contracts
 {
     public interface IResult<T>
     {

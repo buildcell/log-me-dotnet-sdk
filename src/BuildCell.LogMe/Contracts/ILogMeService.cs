@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using LogMe.Constants;
-using LogMe.Dtos;
+using BuildCell.LogMe.Constants;
+using BuildCell.LogMe.Dtos;
 
-namespace LogMe.Contracts
+namespace BuildCell.LogMe.Contracts
 {
     public interface ILogMeService
     {

@@ -4,13 +4,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LogMe.Test")]
+[assembly: AssemblyTitle("BuildCell.LogMe")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LogMe.Test")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("BlockCell Crew")]
+[assembly: AssemblyProduct("BuildCell.LogMe")]
+[assembly: AssemblyCopyright("Copyright © BlockCell Crew 2025")]
+[assembly: AssemblyTrademark("BlockCellCrew")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5F6534C2-AB1C-4EC6-B98B-C3F4C5C7C0C0")]
+[assembly: Guid("CCDEAA61-AF95-4BBE-B641-03EFCD9662D0")]
 
 // Version information for an assembly consists of the following four values:
 //

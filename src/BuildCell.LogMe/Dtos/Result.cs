@@ -1,6 +1,6 @@
-﻿using LogMe.Contracts;
+﻿using BuildCell.LogMe.Contracts;
 
-namespace LogMe.Dtos
+namespace BuildCell.LogMe.Dtos
 {
     public class Result<T> : IResult<T>
     {
