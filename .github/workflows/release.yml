@@ -63,6 +63,12 @@ jobs:
         with:
           name: Nuget-Package
           
+      - name: Debug - List files
+        run: Get-ChildItem -Recurse
+
+      - name: Extract artifact
+        run: Expand-Archive -Path Nuget-Package.zip -DestinationPath Nuget-Package
+      
       - name: Create release in github
         if: needs.build.outputs.CommitsSinceVersionSource > 0
         uses: ncipollo/release-action@v1
