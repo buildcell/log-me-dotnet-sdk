@@ -69,4 +69,4 @@ jobs:
         with:
           tag: ${{ needs.build.outputs.Version }}
           name: ${{ needs.build.outputs.Version }}
-          artifacts: "Nuget-Package/BuildCell.LogMe*.nupkg"
+          artifacts: "Nuget-Package/BuildCell.LogMe.*.nupkg"
