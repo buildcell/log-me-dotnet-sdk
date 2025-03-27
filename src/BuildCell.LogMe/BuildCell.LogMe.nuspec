@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>icon.png</icon>
+    <projectUrl>https://github.com/buildcell/log-me-dotnet-sdk</projectUrl>
+    <repository type="git" url="https://github.com/buildcell/log-me-dotnet-sdk"/>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+    <readme>README.md</readme>
+    <tags>Log BuildCell</tags>
+  </metadata>
+  <files>
+    <file src="..\..\images\icon.png" target="\"/>
+    <file src="..\..\README.md" target="\"/>
+  </files>
+</package>

@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BuildCell.LogMe")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BlockCell Crew")]
+[assembly: AssemblyCompany("BuildCell")]
 [assembly: AssemblyProduct("BuildCell.LogMe")]
-[assembly: AssemblyCopyright("Copyright © BlockCell Crew 2025")]
-[assembly: AssemblyTrademark("BlockCellCrew")]
+[assembly: AssemblyCopyright("Copyright © BuildCell 2025")]
+[assembly: AssemblyTrademark("BuildCell")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

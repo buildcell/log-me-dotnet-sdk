@@ -1,0 +1,28 @@
+﻿name: Sandbox release
+
+on:
+  push:
+    branches: [ feat/log-me ]
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - uses: nuget/setup-nuget@v2
+        with:
+          nuget-version: '5.x'
+
+      - name: Restore Nuget packages
+        run: nuget restore LogMe.sln /p:Configuration=Release
+
+      - name: Build Nuget package
+        run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Properties Configuration=Release
+
+      - name: Upload NuGet Package as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: nuget-package
+          path: src/BuildCell.LogMe/*.nupkg
