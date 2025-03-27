@@ -45,7 +45,7 @@ jobs:
         run: msbuild .\LogMe.sln /p:Configuration=Release
 
       - name: Build Nuget package
-        run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Version ${{ needs.build.outputs.Version }} -Properties Configuration=Release
+        run: nuget pack .\src\BuildCell.LogMe\BuildCell.LogMe.csproj -Version ${{ steps.gitversion.outputs.SemVer }} -Properties Configuration=Release
 
       - name: Upload NuGet Package as Artifact
         uses: actions/upload-artifact@v4
