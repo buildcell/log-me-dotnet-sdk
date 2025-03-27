@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Nuget-Package
-          path: BuildCell.LogMe.*.nupkg 
+          path: BuildCell.LogMe.${{ steps.gitversion.outputs.SemVer }}.nupkg 
   
   release:
     runs-on: windows-2019
@@ -69,4 +69,4 @@ jobs:
         with:
           tag: ${{ needs.build.outputs.Version }}
           name: ${{ needs.build.outputs.Version }}
-          artifacts: "Nuget-Package/BuildCell.LogMe.*.nupkg"
+          artifacts: "Nuget-Package/BuildCell.LogMe.${{ needs.build.outputs.Version }}.nupkg"
