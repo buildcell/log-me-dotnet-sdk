@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ feat/log-me ]
+    branches: [ main ]
 
 jobs:
   build:
