@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
 
       - name: Install GitVersion
@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Nuget-Package
-          path: BuildCell.LogMe.${{ steps.gitversion.outputs.SemVer }}.nupkg 
+          path: BuildCell.LogMe.${{ steps.gitversion.outputs.SemVer }}.nupkg
   
   release:
     runs-on: windows-2019
@@ -62,7 +62,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Nuget-Package
-          
+
       - name: Debug - List files
         run: Get-ChildItem -Recurse
 
@@ -73,3 +73,11 @@ jobs:
           tag: ${{ needs.build.outputs.Version }}
           name: ${{ needs.build.outputs.Version }}
           artifacts: "BuildCell.LogMe.${{ needs.build.outputs.Version }}.nupkg"
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Publish to nuget org
+        run: dotnet nuget push BuildCell.LogMe.${{ needs.build.outputs.Version }}.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
