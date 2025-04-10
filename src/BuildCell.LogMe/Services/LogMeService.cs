@@ -32,6 +32,14 @@ namespace BuildCell.LogMe.Services
             _httpClient.DefaultRequestHeaders.Add("token", _projectToken);
         }
 
+        /// <summary>
+        /// Sends an info log asynchronously to the logger API.
+        /// </summary>
+        /// <param name="name">The name of the info or the source where it occurred.</param>
+        /// <param name="description">Detailed info description for diagnosis.</param>
+        /// <returns>
+        /// A result object containing either the logging outcome.
+        /// </returns>
         public async Task<IResult<object>> InfoAsync(string name, string description, string trace = "")
         {
             try
@@ -47,11 +55,53 @@ namespace BuildCell.LogMe.Services
 
                 var response = await _httpClient.PostAsJsonAsync("api/Logger", createRequest);
 
-                return await response.Content.ReadFromJsonAsync<Result<object>>();
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<Result<object>>();
+                }
+
+                return Result<object>.Error($"Failed to send info log. StatusCode: {response.StatusCode}");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw;
+                return Result<object>.Error($"Exception while logging info: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Sends an error log asynchronously to the logger API.
+        /// </summary>
+        /// <param name="name">The name of the error or the source where it occurred.</param>
+        /// <param name="description">Detailed error description for diagnosis.</param>
+        /// <param name="trace">Optional stack trace or additional trace information.</param>
+        /// <returns>
+        /// A result object containing either the logging outcome or error information in case of failure.
+        /// </returns>
+        public async Task<IResult<object>> ErrorAsync(string name, string description, string trace = "")
+        {
+            try
+            {
+                var createRequest = new CreateLog()
+                {
+                    Name = name,
+                    Environment = GetEnvironment(_environment),
+                    Level = GetLogLevel(LogLevel.Error),
+                    Trace = trace,
+                    Description = description,
+                };
+
+                var response = await _httpClient.PostAsJsonAsync("api/Logger", createRequest);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<Result<object>>();
+                }
+
+                return Result<object>.Error($"Failed to send error log. StatusCode: {response.StatusCode}");
+            }
+            catch (Exception ex)
+            {
+                return Result<object>.Error($"Exception while logging error: {ex.Message}");
             }
         }
 

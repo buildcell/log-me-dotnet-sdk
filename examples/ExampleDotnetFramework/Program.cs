@@ -9,12 +9,13 @@ namespace ExampleDotnetFramework
         {
             var projectToken = "";
             var authToken = "";
-            
+
             var logMe = new LogMeService(authToken, projectToken, LogEnvironment.Development);
 
             var createLogResult = logMe.InfoAsync("test", "text description").Result;
+            var createErrorLogResult = logMe.ErrorAsync("test", "text description").Result;
 
-            var result = logMe.GetLogsAsync(projectToken).Result;
+            var resultInfo = logMe.GetLogsAsync(projectToken).Result;
         }
     }
 }
